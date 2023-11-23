@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Player({ name, symbol, isActiveStyle }) {
+export default function Player({ name, symbol, isActiveStyle, onChangeName }) {
   const [playerName, setPlayername] = useState(name);
   // const [btnName, setBtnName] = useState("Edit");
   const [isEditing, setIsEditing] = useState(false);
@@ -19,6 +19,9 @@ export default function Player({ name, symbol, isActiveStyle }) {
     //   setBtnName("Edit");
     //   setIsEditing(false);
     // }
+    if (isEditing) {
+      onChangeName(symbol, playerName);
+    }
   }
 
   return (
